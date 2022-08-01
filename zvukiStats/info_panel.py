@@ -62,7 +62,7 @@ class PanelQueryHandler:
     async def _await_all_coroutine_queries(self):
         """Запускает выполнение всех `корутинных` запросов к БД."""
         for query in self.db_manager.panel_coroutine_queries:
-            await self.await_coroutine_query(query)
+            await self._await_coroutine_query(query)
 
 
 class PanelCreator:

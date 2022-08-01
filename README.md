@@ -28,15 +28,14 @@ zvukiStats по умолчанию работает с `test_collection` из `t
 В дальнейшем, при доработке программы, планируется добавить возможность выбора рабочей БД и коллекции.
 
 ### Как попробовать (инструкция для Linux)
-#### Установка "вручную"
 1. Клонируйте этот репозиторий на локальную машину и перейдите в рабочую директорию проекта.
 ```bash
-git clone ...
-cd ...
+git clone git@github.com:SamMirabyan/zvukislovAPI.git
+cd zvukislovAPI/
 ```
 2. Установите и активируйте вирутальное окружение
 ```bash
-python3 -m venv venv
+(.../zvukislovAPI/) python3 -m venv venv
 source venv/bin/activate
 ```
 3. Установите зависимости
@@ -52,7 +51,7 @@ from .db_manager import DBManager
 db_manager = DBManager(connection_args=("host", "port"))
 ...
 ```
-4.1. Если у вас нет mongodb, но есть docker, то можно использовать следующую команду
+Если у вас нет mongodb, но есть docker, то можно использовать следующую команду
 ```bash
 sudo docker run -d --name mongo_test -p 27888:27017 -v mongo-data:/data/db mongo:latest
 ```
@@ -79,22 +78,6 @@ optional arguments:
   -t, --test            проверить тестовые функции
 ```
 6. Переходите к секции с примерами.
-
-#### Установка с помощью docker-compose
-1. Скачайте docker-compose.yml.
-2. Создайте новы контейнер с помощью команды
-```bash
-sudo docker-compose up -d --build 
-```
-3. Начните работу с контейнером в интерактивном режиме
-```bash
-sudo docker exec -it ... bash
-```
-4. Проверьте, что программа работает
-```bash
-python3 -m zvukiStats -h
-```
-5. Переходите к секции с примерами.
 
 ### Примеры
 ```bash
